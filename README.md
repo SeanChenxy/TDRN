@@ -1,4 +1,4 @@
-# Towards Real-Time Accurate Object Detection in Both Images and Videos Based on Dual Refinement
+# A Dual Refinement Mechanism for Real-World Visual Detection
 
 ## Inrtroduction
 This repository is initially based on [ssd.pytorch](https://github.com/amdegroot/ssd.pytorch), and some modules are from [RFBNet](https://github.com/ruinmessi/RFBNet) and [deformable-convolution-pytorch](https://github.com/1zb/deformable-convolution-pytorch), a huge thank to them.
