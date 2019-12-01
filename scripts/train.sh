@@ -2,7 +2,7 @@
 type='ssd_refine'
 if [ $type = 'ssd_refine' ]
 then
-    python ../train.py \
+    CUDA_VISIBLE_DEVICES='0,1,2,3' python ../train.py \
     --lr 0.001 \
     --warm_epoch 0 \
     --gamma 0.1 \
@@ -18,7 +18,7 @@ then
     --num_workers 2 \
     --loss_coe 1.0 1.0 0.5 \
     --bn 'yes' \
-    --gpu_ids '4,5,6,7' \
+    --gpu_ids '0,1,2,3' \
     --dataset_name 'VOC0712' \
     --set_file_name 'train' \
     --backbone 'RefineDet_VGG' \
@@ -29,7 +29,7 @@ then
     --basenet 'vgg16bn_reducedfc.pth'
 elif [ $type = 'ssd_refine_coco' ]
 then
-    CUDA_VISIBLE_DEVICES='4,5,6,7' python ../train.py \
+    CUDA_VISIBLE_DEVICES='0,1,2,3' python ../train.py \
     --lr 0.001 \
     --warm_epoch 0 \
     --gamma 0.1 \
@@ -57,7 +57,7 @@ elif [ $type = 'ssd_refine_voc12' ]
 then
     # data/config.py:
     # 'VOC0712':([('2007', 'trainval'), ('2012', 'trainval'), ('2007', 'test')], len(VOC_CLASSES) + 1, VOCroot)
-    python ../train.py \
+    CUDA_VISIBLE_DEVICES='0,1,2,3' python ../train.py \
     --lr 0.002 \
     --warm_epoch 0 \
     --gamma 0.1 \
@@ -73,7 +73,7 @@ then
     --num_workers 2 \
     --loss_coe 1.0 1.0 0.5 \
     --bn 'yes' \
-    --gpu_ids '4,5,6,7' \
+    --gpu_ids '0,1,2,3' \
     --dataset_name 'VOC0712' \
     --set_file_name 'train' \
     --backbone 'RefineDet_VGG' \

@@ -2,13 +2,13 @@
 conf_thresh=0.01
 nms_thresh=0.45
 top_k=200
-type='ssd_refine_coco'
-for iter in {75,}
+type='ssd_refine'
+for iter in {-1,}
 do
     if [ $type = 'ssd_refine' ]
     then
-        CUDA_VISIBLE_DEVICES='6' python ../evaluate.py \
-        --model_dir '../weights' \
+        CUDA_VISIBLE_DEVICES='0' python ../evaluate.py \
+        --model_dir '../weights/VOC07/drn320_VGG16_8202.pth' \
         --model_name ssd \
         --ssd_dim 320 \
         --iteration $iter \
@@ -31,11 +31,11 @@ do
         --display 'no'
     elif [ $type = 'ssd_refine_voc12' ]
     then
-        CUDA_VISIBLE_DEVICES='3' python ../evaluate.py \
-        --model_dir '../weights' \
+        CUDA_VISIBLE_DEVICES='0' python ../evaluate.py \
+        --model_dir '../weights/VOC12/drn320_VGG16_7934.pth' \
         --model_name ssd \
         --ssd_dim 320 \
-        --iteration 210 \
+        --iteration $iter \
         --save_folder '../eval/VOC12' \
         --dataset_name 'VOC0712' \
         --year '2012' \
@@ -54,11 +54,11 @@ do
         --cuda 'yes'
     elif [ $type = 'ssd_refine_coco' ]
     then
-        CUDA_VISIBLE_DEVICES='3'  python ../evaluate_coco.py \
-        --model_dir '../weights' \
+        CUDA_VISIBLE_DEVICES='0'  python ../evaluate_coco.py \
+        --model_dir '../weights/COCO/drn320_VGG16_3040.pth' \
         --model_name ssd \
         --ssd_dim 320 \
-        --iteration 150 \
+        --iteration $iter \
         --save_folder '../eval/COCO' \
         --dataset_name 'COCO' \
         --year 'trainval2014' \

@@ -134,7 +134,7 @@ if args.resume:
     logging.info('Resuming training, loading {}...'.format(args.resume))
     ssd_net.load_weights(args.resume)
 else:
-    backbone_weights = torch.load('/home/sean/Documents/SSD/weights040/'+ args.basenet)
+    backbone_weights = torch.load('../weights/'+ args.basenet)
     logging.info('Loading base network...')
     ssd_net.backbone.load_state_dict(backbone_weights)
     net_init(ssd_net, init_option, logging, deform=args.deform)

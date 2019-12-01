@@ -194,10 +194,10 @@ class VOCDetection(data.Dataset):
         self.max_trans_ratio = max_trans_ratio
         self.skip = skip
         self.use_mask = use_mask
-        if skip:
-            print('Random collect data with a random skip')
-        else:
-            print('Random collect data continuously')
+        # if skip:
+        #     print('Random collect data with a random skip')
+        # else:
+        #     print('Random collect data continuously')
         if self.name in ['VOC0712', 'VOC2007', 'VOC2012']:
             self._annopath = os.path.join('%s', 'Annotations', '%s.xml')
             self._imgpath = os.path.join('%s', 'JPEGImages', '%s.jpg')
